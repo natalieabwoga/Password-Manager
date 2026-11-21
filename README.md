@@ -1,4 +1,4 @@
-# ICS 3201: Programming Assignment 1 — Password Manager
+# Password Manager
 
 A secure password manager library and local web interface built with the Web Crypto API (`SubtleCrypto`).
 
@@ -20,7 +20,7 @@ A secure password manager library and local web interface built with the Web Cry
 ## Project Structure
 
 ```
-├── password-manager.js          # Core library (submission file)
+├── password-manager.js          # Core library 
 ├── lib.js                       # SubtleCrypto conversion helpers
 ├── index.html                   # Local vault interface
 ├── server.js                    # Local static development server
