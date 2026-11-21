@@ -1,4 +1,4 @@
-# ICS 3201: Programming Assignment 1 — Short-Answer Questions
+# Short-Answer Questions
 
 ## 1. Password Length Hiding
 To prevent an adversary from learning password lengths through ciphertext size analysis, all passwords are padded to a fixed length prior to encryption. Assuming the maximum password length is 64 characters (at most 256 bytes in UTF-8), each plaintext buffer is standardized to 258 bytes:
@@ -6,7 +6,7 @@ To prevent an adversary from learning password lengths through ciphertext size a
 - The UTF-8 password bytes are written starting at offset 2.
 - Any remaining space up to 258 bytes is filled with zero bytes.
 
-Because AES-GCM appends a constant 16-byte authentication tag, every single encrypted record stored in the key-value store produces a ciphertext of exactly 274 bytes (368 Base64 characters). On lookup, `get()` decrypts the block, reads the 2-byte prefix, and extracts the original string. This ensures uniform ciphertext size for all inputs from 0 to 64 characters while avoiding any data loss.
+Because AES-GCM appends a constant 16-byte authentication tag, every single encrypted record stored in the key-value store produces a ciphertext of exactly 274 bytes (368 Base64 characters). On lookup, `get()` decrypts the block, reads the 2-byte prefix and extracts the original string. This ensures uniform ciphertext size for all inputs from 0 to 64 characters while avoiding any data loss.
 
 ## 2. Preventing Swap Attacks
 In a swap attack, an adversary alters the serialized database by exchanging ciphertext values between different domain keys (e.g., placing the record for `google.com` under `evil.com`), tricking the user into disclosing credentials for the wrong service.
